@@ -8,6 +8,7 @@ function App() {
     const [term, setTerm] = useState("");
     const [result, setResult] = useState("");
     const [overpay, setOverpay] = useState("");
+    const [flag, setFlag] = useState(false);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -28,7 +29,7 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                Калькулятор аннуитетного кредитования
+                <h3>Калькулятор аннуитетного кредитования</h3>
             </header>
             <form onSubmit={ handleSubmit }>
                 <div>
@@ -61,7 +62,10 @@ function App() {
             <div>
                 Переплата по кредиту составит: {overpay} руб.
             </div>
-            <Table amount={Number(sum)} count={Number(term)} rate={Number(rate)}/>
+            <button onClick={() => setFlag(!flag)}>Показать таблицу</button>
+            {flag === true && (
+                <Table amount={Number(sum)} rate={Number(rate)} monthlyPayment={Number(result)}/>
+            )}
         </div>
     );
 }
