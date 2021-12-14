@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useState} from "react";
-import Table from "./Table";
+import Table from "./components/Table";
 
 function App() {
     const [sum, setSum] = useState("");
@@ -29,14 +29,18 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <h3>Калькулятор аннуитетного кредитования</h3>
+                <h2>Калькулятор аннуитетного кредитования</h2>
             </header>
             <form onSubmit={ handleSubmit }>
-                <div>
-                    <label>
-                        Сумма кредита, руб.
-                        <input value={sum} onChange={e => setSum(e.target.value)} type="text"/>
-                    </label>
+                <div className="row">
+                    <div className="label">
+                        <label htmlFor="sum">
+                            Сумма кредита, руб.
+                        </label>
+                    </div>
+                    <div className="field">
+                        <input id="sum" value={sum} onChange={e => setSum(e.target.value)} type="text"/>
+                    </div>
                 </div>
                 <div>
                     <label>

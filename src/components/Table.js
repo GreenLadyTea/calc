@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Table.module.css";
 
 export default function Table({ amount, rate, monthlyPayment }) {
     function getTable() {
@@ -43,7 +44,7 @@ export default function Table({ amount, rate, monthlyPayment }) {
     return (
         <div>
             <table>
-                <caption>Таблица платежей</caption>
+                <caption><h3>Таблица платежей</h3></caption>
                 <tr>
                     <th>Номер</th>
                     <th>Платеж</th>
